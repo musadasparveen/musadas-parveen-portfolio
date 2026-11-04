@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musadas Parveen (Gol-am) — Web Development Student Portfolio</title>
+<meta name="description" content="Portfolio of Musadas Parveen (Gol-am), a Web Development Student learning to build modern, responsive websites with HTML, CSS, JavaScript and AI tools.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0c3b2e; --green2:#116149; --green3:#1a9e74;
+    --cream:#fdf8ef; --sand:#f6ecda; --gold:#e0aa3e; --gold2:#f5c86b;
+    --pink:#f7c8d8; --ink:#1c2420; --muted:#5c6a63;
+    --radius:20px; --shadow:0 14px 34px rgba(12,59,46,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',system-ui,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:min(1140px,92%);margin:0 auto}
+  h1,h2,.serif{font-family:'Playfair Display',serif}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:60;background:rgba(9,46,34,.97);color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{font-weight:800;font-size:1.08rem}
+  .logo span{color:var(--gold2)}
+  .menu{display:flex;gap:24px;list-style:none}
+  .menu a{color:#eaf3ee;font-weight:600;font-size:.93rem;padding:6px 2px;border-bottom:2px solid transparent}
+  .menu a:hover{color:var(--gold2);border-color:var(--gold2)}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  /* Hero */
+  .hero{position:relative;background:radial-gradient(1000px 500px at 85% -10%,rgba(245,200,107,.35),transparent 60%),linear-gradient(130deg,#092e22 0%,var(--green) 45%,var(--green2) 75%,var(--green3) 115%);color:#fff;padding:78px 0 92px;overflow:hidden}
+  .petal{position:absolute;font-size:1.7rem;opacity:.55;animation:float 7s ease-in-out infinite}
+  .p1{top:36px;left:6%}.p2{top:120px;right:8%;animation-delay:1.4s;font-size:2.2rem}.p3{bottom:42px;left:42%;animation-delay:2.6s}.p4{top:24px;right:34%;animation-delay:.7s;font-size:1.3rem}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(14deg)}}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:46px;align-items:center;position:relative}
+  .badge{display:inline-block;background:rgba(245,200,107,.16);border:1px solid var(--gold);color:#ffe6a8;padding:6px 16px;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:20px;letter-spacing:.4px}
+  .hero h1{font-size:clamp(2.2rem,5.4vw,3.5rem);line-height:1.12;margin-bottom:8px;text-shadow:0 3px 14px rgba(0,0,0,.25)}
+  .hero h1 .flower{color:var(--gold2)}
+  .hero .role{display:inline-block;font-size:clamp(1rem,2.3vw,1.3rem);color:#0c3b2e;background:linear-gradient(90deg,var(--gold2),var(--gold));font-weight:800;padding:5px 18px;border-radius:999px;margin:8px 0 18px}
+  .hero p{color:#e9f4ee;max-width:54ch;margin-bottom:30px;font-size:1.02rem}
+  .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .btn{padding:14px 30px;border-radius:999px;font-weight:800;border:2px solid transparent;cursor:pointer;display:inline-block;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.28)}
+  .btn-gold{background:linear-gradient(90deg,var(--gold2),var(--gold));color:#2a1d03}
+  .btn-ghost{border-color:#cfe9db;color:#fff;background:rgba(255,255,255,.06)}
+  .stats{display:flex;gap:14px;flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px);border-radius:16px;padding:12px 20px;text-align:center}
+  .stat b{display:block;font-size:1.25rem;color:var(--gold2)}
+  .stat small{color:#d9ece2;font-weight:600}
+  .hero-img{position:relative}
+  .hero-img .main{border-radius:26px;overflow:hidden;box-shadow:0 28px 56px rgba(0,0,0,.4);border:5px solid rgba(255,255,255,.75);transform:rotate(2deg)}
+  .hero-img .main img{aspect-ratio:4/3.6;object-fit:cover;width:100%}
+  .hero-img .chip{position:absolute;left:-16px;bottom:26px;background:#fff;color:var(--green);font-weight:800;padding:12px 20px;border-radius:16px;box-shadow:var(--shadow);transform:rotate(-2deg)}
+  .hero-img .chip small{display:block;color:var(--muted);font-weight:600}
+
+  /* Sections */
+  section{padding:76px 0}
+  .sec-head{text-align:center;max-width:660px;margin:0 auto 44px}
+  .sec-head .kicker{color:var(--green3);font-weight:800;text-transform:uppercase;letter-spacing:2.5px;font-size:.78rem}
+  .sec-head h2{font-size:clamp(1.7rem,3.6vw,2.35rem);color:var(--green);margin:8px 0 10px}
+  .sec-head h2::after{content:"";display:block;width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold2),var(--gold));margin:14px auto 0}
+  .sec-head p{color:var(--muted)}
+  .alt{background:linear-gradient(180deg,var(--sand),#fdf3e0)}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .about-img{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:5px solid #fff;transform:rotate(-2deg)}
+  .about-img img{aspect-ratio:4/3.2;object-fit:cover;width:100%}
+  .about-txt h2{color:var(--green);font-size:clamp(1.6rem,3.2vw,2.15rem);margin-bottom:14px}
+  .about-txt p{color:var(--muted);margin-bottom:14px}
+  .about-txt .sig{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green2)}
+
+  /* Cards */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid #f0e5cb;transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 42px rgba(12,59,46,.2)}
+  .card img{height:150px;width:100%;object-fit:cover}
+  .card .body{padding:24px}
+  .card h3{color:var(--green);margin-bottom:8px;font-size:1.1rem}
+  .card p{color:var(--muted);font-size:.94rem}
+  .cat{background:linear-gradient(160deg,var(--green2),var(--green));color:#fff;text-align:center;padding:28px 10px;border-radius:var(--radius);transition:transform .25s;box-shadow:var(--shadow)}
+  .cat:hover{transform:translateY(-8px) scale(1.03)}
+  .cat .icon{font-size:2rem;margin-bottom:8px}
+  .cat h3{font-size:1rem;color:var(--gold2)}
+  .cat p{font-size:.82rem;color:#cfe9db}
+
+  /* Projects */
+  .coming{background:#fff;border:3px dashed var(--green3);border-radius:26px;padding:52px 30px;text-align:center;max-width:780px;margin:0 auto;box-shadow:var(--shadow)}
+  .coming .icon{font-size:3.4rem;margin-bottom:14px}
+  .coming h3{color:var(--green);font-size:1.5rem;margin-bottom:10px;font-family:'Playfair Display',serif}
+  .coming p{color:var(--muted);max-width:56ch;margin:0 auto}
+  .coming .pill{display:inline-block;margin-top:20px;background:#eaf6f0;color:var(--green2);font-weight:800;padding:8px 20px;border-radius:999px}
+
+  /* Journey */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);border-top:6px solid var(--gold);transition:transform .25s}
+  .step:hover{transform:translateY(-6px)}
+  .step .num{font-size:.78rem;font-weight:800;color:var(--green3);letter-spacing:2.5px}
+  .step h3{color:var(--green);margin:8px 0}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  /* Contact */
+  .contact-card{background:radial-gradient(700px 300px at 90% 0%,rgba(245,200,107,.35),transparent 60%),linear-gradient(130deg,var(--green),var(--green2));color:#fff;border-radius:28px;padding:54px 34px;text-align:center;box-shadow:var(--shadow)}
+  .contact-card h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:10px}
+  .contact-card p{color:#d9ece2;max-width:56ch;margin:0 auto 28px}
+  .form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .form input{padding:15px 22px;border-radius:999px;border:0;width:min(370px,100%);font-size:1rem}
+  .form button{padding:15px 32px;border-radius:999px;border:0;background:linear-gradient(90deg,var(--gold2),var(--gold));color:#2a1d03;font-weight:800;cursor:pointer;font-size:1rem;transition:transform .2s}
+  .form button:hover{transform:translateY(-2px)}
+  #formMsg{margin-top:16px;font-weight:700;color:#ffe6a8;min-height:1.5em}
+
+  footer{background:#07231a;color:#bcd8ca;text-align:center;padding:30px 0;font-size:.92rem}
+  footer .fname{color:#fff;font-weight:700}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s,transform .65s}
+  .reveal.show{opacity:1;transform:none}
+
+  @media (max-width:920px){
+    .grid5{grid-template-columns:repeat(3,1fr)}
+    .hero-grid,.about-grid{grid-template-columns:1fr}
+    .hero-img,.about-img{max-width:540px}
+  }
+  @media (max-width:680px){
+    .grid3,.steps{grid-template-columns:1fr}
+    .grid5{grid-template-columns:repeat(2,1fr)}
+    .menu{display:none;position:absolute;top:100%;left:0;right:0;background:#092e22;flex-direction:column;padding:18px 6%;gap:14px}
+    .menu.open{display:flex}
+    .burger{display:block}
+    section{padding:54px 0}
+    .hero-img .chip{left:6px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home">Musadas Parveen <span>(Gol-am)</span> 🌸</a>
+    <button class="burger" id="burger" aria-label="Open menu">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#areas">Learning Areas</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">My Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero" id="home">
+  <span class="petal p1">🌸</span><span class="petal p2">🌼</span><span class="petal p3">🌸</span><span class="petal p4">✨</span>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">🌸 PORTFOLIO — SKILLX WEB DEVELOPMENT CLASS</span>
+      <h1>Musadas Parveen <span class="flower">(Gol-am)</span></h1>
+      <div><span class="role">Web Development Student</span></div>
+      <p>Assalam-o-Alaikum! I am learning to build modern, clean and mobile-friendly websites using HTML, CSS, JavaScript and AI tools. This portfolio is my very first website — designed, developed and published step by step by following my web development class.</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="#projects">✦ See My Projects</a>
+        <a class="btn btn-ghost" href="#contact">Contact Me</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>3</b><small>Core Skills</small></div>
+        <div class="stat"><b>5</b><small>Learning Areas</small></div>
+        <div class="stat"><b>1st</b><small>Website — This One!</small></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="main"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80&auto=format&fit=crop" alt="A laptop with website code on its screen, showing web development work"></div>
+      <div class="chip">🌸 Gol-am<small>Web Development Student</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=900&q=80&auto=format&fit=crop" alt="Colourful website code on a computer screen" loading="lazy">
+    </div>
+    <div class="about-txt reveal">
+      <h2>About Me</h2>
+      <p>I am a web development student at SkillX, at the very beginning of an exciting journey. I am learning how a website is planned, designed, built and published on the internet — one step at a time.</p>
+      <p>My goal is simple: keep learning, keep practising, and one day build beautiful websites for real clients. This page is where my finished work will live as I grow.</p>
+      <p class="sig">— Musadas Parveen (Gol-am) 🌸</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="alt" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">What I Am Learning</div>
+      <h2>My Skills</h2>
+      <p>The three building blocks of every website — I am learning each one through my web development class.</p>
+    </div>
+    <div class="grid3">
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80&auto=format&fit=crop" alt="HTML code written on a dark screen" loading="lazy">
+        <div class="body">
+          <h3>🏗️ HTML — Structure</h3>
+          <p>Building the skeleton of a web page: headings, text, images, links, lists and clean, meaningful structure that search engines can understand.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?w=800&q=80&auto=format&fit=crop" alt="A colourful creative design workspace with paints and brushes" loading="lazy">
+        <div class="body">
+          <h3>🎨 CSS — Design</h3>
+          <p>Making pages beautiful: colours, fonts, spacing, cards, buttons and layouts that look good on mobile phones and computers alike.</p>
+        </div>
+      </div>
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80&auto=format&fit=crop" alt="JavaScript code glowing on a computer screen" loading="lazy">
+        <div class="body">
+          <h3>⚡ JavaScript — Interactivity</h3>
+          <p>Adding life to a page: working menus, buttons that respond, form messages and small interactive touches for visitors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Learning Areas -->
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Course Topics</div>
+      <h2>Learning Areas</h2>
+      <p>Five areas covered in my learning journey so far.</p>
+    </div>
+    <div class="grid5">
+      <div class="cat reveal"><div class="icon">📄</div><h3>HTML</h3><p>Page structure &amp; content</p></div>
+      <div class="cat reveal"><div class="icon">🖌️</div><h3>CSS</h3><p>Styling &amp; layout</p></div>
+      <div class="cat reveal"><div class="icon">💻</div><h3>JavaScript</h3><p>Interactivity</p></div>
+      <div class="cat reveal"><div class="icon">📱</div><h3>Responsive Design</h3><p>Mobile-friendly pages</p></div>
+      <div class="cat reveal"><div class="icon">🤖</div><h3>AI Website Building</h3><p>Prompting AI to write code</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">My Work</div>
+      <h2>Projects</h2>
+      <p>An honest start — this section will grow as real work is completed.</p>
+    </div>
+    <div class="coming reveal">
+      <div class="icon">🚧🌸</div>
+      <h3>Projects Coming Soon</h3>
+      <p>I have just started my web development journey and have not completed any client projects yet. As soon as my first order or project is completed, it will be added here with its details. Thank you for visiting at the very beginning of my journey!</p>
+      <span class="pill">✦ First project will appear here ✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- Journey -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Step By Step</div>
+      <h2>My Learning Journey</h2>
+      <p>How I reached this first website.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">STEP 01</div>
+        <h3>🎓 Joined the Class</h3>
+        <p>I started the SkillX Web Development class to learn how websites are planned, designed and built from zero.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">STEP 02</div>
+        <h3>📝 Learned the Method</h3>
+        <p>In the lecture I learned to choose a topic first, plan every section, and then write a detailed prompt so AI generates one complete website file.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">STEP 03</div>
+        <h3>🚀 Built &amp; Published This Site</h3>
+        <p>Following the same method, I built this portfolio as a single HTML file with CSS and JavaScript inside, tested it, and published it online through GitHub.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="padding-top:10px">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <h2>Stay in Touch 🌸</h2>
+      <p>Leave your email address and I will share updates when new projects are added to this portfolio.</p>
+      <form class="form" id="newsForm">
+        <input type="email" id="emailInput" placeholder="Enter your email address" aria-label="Email address" required>
+        <button type="submit">Subscribe ✦</button>
+      </form>
+      <div id="formMsg" role="status"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><span class="fname">Musadas Parveen (Gol-am)</span> — Web Development Student</p>
+    <p>© <span id="year"></span> Musadas Parveen (Gol-am). All rights reserved. Built with HTML, CSS &amp; JavaScript.</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  document.getElementById('newsForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('emailInput').value.trim();
+    const msg = document.getElementById('formMsg');
+    if(!email || !email.includes('@')){
+      msg.textContent = 'Please enter a valid email address.';
+      return;
+    }
+    msg.textContent = 'Thank you for subscribing! 🌸 Updates will be shared soon, In Sha Allah.';
+    this.reset();
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); } });
+  }, {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
